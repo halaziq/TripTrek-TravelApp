@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:trip_trek/entities/routes/routes.dart';
 import 'package:trip_trek/entities/styles/palettes.dart';
 import 'package:trip_trek/entities/widgets/custom_elevated_button.dart';
 
@@ -11,7 +13,7 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  int count = 2;
+  int count = 0;
   String title1 = 'Plan Your Trip' ;
   String title2 = 'Get the Best Deal';
   String title3 = 'Explore Local Attractions';
@@ -34,7 +36,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: SizedBox(
               height: MediaQuery.of(context).size.height*0.4,
               width: MediaQuery.of(context).size.width,
-              child: Image.asset("assets/images/Booking.png"),
+              child: Image.asset(count == 0? image1 : count == 1? image2: image3),
             ),
           ),
         
@@ -77,9 +79,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     width: MediaQuery.of(context).size.width*0.9,
                     textSize: 16,
                     buttonString: "Next", 
-                    onPressed: (){
+                    onPressed: ()async{
+                      final pref = await SharedPreferences.getInstance();
                       setState(() {
-                        count == 2 ? count = 0 : count++;
+                        if(count ==2){
+                          pref.setBool('showOnboarding', false);
+                          Navigator.pushNamed(context, Routes.signIn);
+                        }
+                        else{
+                          count ++;
+                        }
                         
                       });
                     }),

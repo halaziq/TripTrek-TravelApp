@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:trip_trek/screens/onboarding/onboarding.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:trip_trek/entities/routes/routes.dart';
+import 'package:trip_trek/entities/routes/router.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final showOnboarding = prefs.getBool('showOnboarding') ?? true;
+  runApp( MyApp(showOnboarding: showOnboarding,));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool showOnboarding;
+  const MyApp({
+    required this.showOnboarding,
+    super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      home:  OnboardingScreen(),
+    return  MaterialApp(
+      initialRoute: showOnboarding == false? Routes.signIn : Routes.onboarding,
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      
     );
   }
 }
