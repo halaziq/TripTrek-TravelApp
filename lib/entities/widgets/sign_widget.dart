@@ -26,7 +26,7 @@ class SignWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              color: Paletts.erieBlack,
+                              color: Palette.erieBlack,
                               height: 1,
                               width: MediaQuery.of(context).size.width*0.39,
                             ),
@@ -36,7 +36,7 @@ class SignWidget extends StatelessWidget {
                               fontStyle: FontStyle.normal
                             ),),
                             Container(
-                              color: Paletts.erieBlack,
+                              color: Palette.erieBlack,
                               height: 1,
                               width: MediaQuery.of(context).size.width*0.39,
                             ),
@@ -54,12 +54,12 @@ class SignWidget extends StatelessWidget {
                            ElevatedButton(
                             onPressed: (){},
                             style: ElevatedButton.styleFrom(
-                            backgroundColor: Paletts.snow,
-                            foregroundColor: Paletts.snow,
+                            backgroundColor: Palette.snow,
+                            foregroundColor: Palette.snow,
                             elevation: 0,
-                            disabledBackgroundColor: Paletts.snow,
+                            disabledBackgroundColor: Palette.snow,
                             side: const BorderSide(
-                              color: Paletts.spanishGrey,
+                              color: Palette.spanishGrey,
                               width: 0.5
                             ),
                             shape: const RoundedRectangleBorder(
@@ -87,12 +87,12 @@ class SignWidget extends StatelessWidget {
                            ElevatedButton(
                             onPressed: (){},
                             style: ElevatedButton.styleFrom(
-                            backgroundColor: Paletts.snow,
-                            foregroundColor: Paletts.snow,
+                            backgroundColor: Palette.snow,
+                            foregroundColor: Palette.snow,
                             elevation: 0,
-                            disabledBackgroundColor: Paletts.snow,
+                            disabledBackgroundColor: Palette.snow,
                             side: const BorderSide(
-                              color: Paletts.spanishGrey,
+                              color: Palette.spanishGrey,
                               width: 0.5
                             ),
                             shape: const RoundedRectangleBorder(
@@ -118,7 +118,7 @@ class SignWidget extends StatelessWidget {
                     children: [
                         Text(question,
                        style: const TextStyle(
-                        color: Paletts.spanishGrey,
+                        color: Palette.spanishGrey,
                         fontFamily: 'Poppins',
                         fontSize: 12
                        ),
@@ -127,7 +127,7 @@ class SignWidget extends StatelessWidget {
                         onPressed: route,
                         child:  Text(signType, 
                         style: const TextStyle(
-                        color: Paletts.erieBlack,
+                        color: Palette.erieBlack,
                         fontFamily: 'Poppins',
                         fontSize: 12,
                         fontWeight: FontWeight.w600

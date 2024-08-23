@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:trip_trek/entities/styles/palettes.dart';
 import 'package:trip_trek/entities/widgets/activity_widget.dart';
+import 'package:trip_trek/entities/widgets/article_widget.dart';
+import 'package:trip_trek/entities/widgets/choose_location_widget.dart';
 import 'package:trip_trek/entities/widgets/custom_text_filed.dart';
+import 'package:trip_trek/entities/widgets/promp_widget.dart';
+import 'package:trip_trek/entities/widgets/recommended_activity_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,7 +15,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Paletts.snow,
+      backgroundColor: Palette.snow,
       body: SafeArea(
         child: Padding(
           padding:  EdgeInsets.all(MediaQuery.of(context).size.height*0.02),
@@ -62,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                    const Text("Popular Nearby",style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 15,
-                      color: Paletts.erieBlack,
+                      color: Palette.erieBlack,
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.w700,
                     ),),
@@ -71,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                     child: const Text("See all",style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 13,
-                      color: Paletts.erieBlack,
+                      color: Palette.erieBlack,
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.w500,
                     ),
@@ -81,10 +85,170 @@ class HomeScreen extends StatelessWidget {
                 ],),
               ),
                SizedBox(
-                      height: MediaQuery.of(context).size.height*0.3,
+                      height: MediaQuery.of(context).size.height*0.35,
                       width: MediaQuery.of(context).size.width,
                       child: const ActivityWidget(),
-                    )
+                    ),
+                    SizedBox(
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width,
+                child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                   const Text("Recommended",style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 15,
+                      color: Palette.erieBlack,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w700,
+                    ),),
+
+                    TextButton(onPressed: (){},
+                    child: const Text("See all",style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 13,
+                      color: Palette.erieBlack,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    )),
+                   
+                 
+                ],),
+              ),
+
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height*0.15,
+                child: const RecommendedActivityWidget()),
+              Container(
+                alignment: Alignment.centerLeft,
+                height: MediaQuery.of(context).size.height*0.06,
+                width: MediaQuery.of(context).size.width,
+                child:  const Text("Promo partner",style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 15,
+                      color: Palette.erieBlack,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w700,
+                    ),),
+              
+              ),
+
+              
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height*0.15,
+                child: const PromoWidget()),
+
+          SizedBox(
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width,
+                child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                   const Text("Nearst your location",style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 15,
+                      color: Palette.erieBlack,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w700,
+                    ),),
+
+                    TextButton(onPressed: (){},
+                    child: const Text("See all",style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 13,
+                      color: Palette.erieBlack,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    )),
+                   
+                 
+                ],),
+              ),
+
+                SizedBox(
+                      height: MediaQuery.of(context).size.height*0.35,
+                      width: MediaQuery.of(context).size.width,
+                      child: const ActivityWidget(
+                        isPopular: false,
+                      ),
+                    ),
+
+                        SizedBox(
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width,
+                child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                   const Text("Choose the location",style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 15,
+                      color: Palette.erieBlack,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w700,
+                    ),),
+
+                    TextButton(onPressed: (){},
+                    child: const Text("See all",style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 13,
+                      color: Palette.erieBlack,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    )),
+                   
+                 
+                ],),
+              ),
+
+              SizedBox(
+                 height: MediaQuery.of(context).size.height*0.35,
+                width: MediaQuery.of(context).size.width,
+                child: const ChooseLocationWidget(),
+              ),
+
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width,
+                child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                   const Text("Article",style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 15,
+                      color: Palette.erieBlack,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w700,
+                    ),),
+
+                    TextButton(onPressed: (){},
+                    child: const Text("See all",style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 13,
+                      color: Palette.erieBlack,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    )),
+                   
+                 
+                ],),
+              ),
+
+              SizedBox(
+            height: MediaQuery.of(context).size.height*0.28,
+          width: MediaQuery.of(context).size.width,
+          child: const ArticleWidget(),
+              )
+
           
             ],
           ),
