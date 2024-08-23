@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.6
   shared_preferences: ^2.2.3
+  proste_bezier_curve: ^2.0.2
+  bottom_navbar_with_indicator: ^0.0.9
 
 dev_dependencies:
   flutter_test:

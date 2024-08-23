@@ -19,9 +19,9 @@ class CustomTextFiled extends StatelessWidget {
     this.icon = "assets/icons/search-normal.png",
     required this.hintText,
     this.obscuringCharacter = "*",
-    this.hintColor = Paletts.spanishGrey,
+    this.hintColor = Palette.spanishGrey,
     this.obscureText = false,
-    this.cursorColor = Paletts.spanishGrey,
+    this.cursorColor = Palette.spanishGrey,
   super.key});
 
   @override
@@ -34,7 +34,7 @@ class CustomTextFiled extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           width: 1,
-          color: Paletts.spanishGrey,
+          color: Palette.spanishGrey,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(30))
       ),

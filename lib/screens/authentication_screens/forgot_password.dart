@@ -11,7 +11,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Paletts.blue,
+      backgroundColor: Palette.blue,
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -32,7 +32,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Paletts.blue,
+                  backgroundColor: Palette.blue,
                   elevation: 0
                 ),
                 child:  Image.asset("assets/icons/Back.png",
@@ -47,7 +47,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height*0.8,
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
-                  color: Paletts.snow,
+                  color: Palette.snow,
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))
                 ),
                 child: Padding(
@@ -61,7 +61,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                      const Text("Forgot Password",style: TextStyle(
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.bold,
-                        color: Paletts.erieBlack,
+                        color: Palette.erieBlack,
                         fontSize: 23
                       ),),
                       Padding(
@@ -74,7 +74,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                         ),),
                       ),
                       const Text("Email",style: TextStyle(
-                        color: Paletts.erieBlack,
+                        color: Palette.erieBlack,
                         fontFamily: 'Poppins',
                         fontSize: 13,
                         fontWeight: FontWeight.w600

@@ -13,7 +13,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Paletts.blue,
+      backgroundColor: Palette.blue,
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -35,7 +35,7 @@ class SignInScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height*0.8,
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
-                  color: Paletts.snow,
+                  color: Palette.snow,
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))
                 ),
                 child: Padding(
@@ -49,7 +49,7 @@ class SignInScreen extends StatelessWidget {
                      const Text("Sign In",style: TextStyle(
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.bold,
-                        color: Paletts.erieBlack,
+                        color: Palette.erieBlack,
                         fontSize: 23
                       ),),
                       Padding(
@@ -62,7 +62,7 @@ class SignInScreen extends StatelessWidget {
                         ),),
                       ),
                       const Text("Email",style: TextStyle(
-                        color: Paletts.erieBlack,
+                        color: Palette.erieBlack,
                         fontFamily: 'Poppins',
                         fontSize: 13,
                         fontWeight: FontWeight.w600
@@ -77,7 +77,7 @@ class SignInScreen extends StatelessWidget {
                            Padding(
                              padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height*0.01),
                              child: const Text("Password",style: TextStyle(
-                                                     color: Paletts.erieBlack,
+                                                     color: Palette.erieBlack,
                                                      fontFamily: 'Poppins',
                                                      fontSize: 13,
                                                      fontWeight: FontWeight.w600
@@ -97,7 +97,7 @@ class SignInScreen extends StatelessWidget {
                         child: TextButton(
                           onPressed: ()=> Navigator.pushNamed(context, Routes.forgotPassword),
                           child: const Text("Forgot Password",style: TextStyle(
-                            color: Paletts.erieBlack,
+                            color: Palette.erieBlack,
                              fontFamily: 'Poppins',
                             fontSize: 13,
                             fontWeight: FontWeight.w600
@@ -110,7 +110,7 @@ class SignInScreen extends StatelessWidget {
                       Padding(
                         padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height *0.03),
                         child: CustomElevatedButton(buttonString: 'Sign In',
-                         onPressed: ()=> Navigator.pushNamed(context, Routes.home),
+                         onPressed: ()=> Navigator.pushNamed(context, Routes.navigation),
                          width: MediaQuery.of(context).size.width*0.9,
                          ),
                       ),

@@ -21,9 +21,9 @@ class CustomElevatedButton extends StatelessWidget {
     this.textSize = 15,
     this.fontWeight = FontWeight.normal,
     this.fontFamily = 'Poppins',
-    this.textColor = Paletts.snow,
-    this.backgroundColor = Paletts.erieBlack,
-    this.foregroundColor = Paletts.snow,
+    this.textColor = Palette.snow,
+    this.backgroundColor = Palette.erieBlack,
+    this.foregroundColor = Palette.snow,
     required this.buttonString,
     required this.onPressed,
     super.key});

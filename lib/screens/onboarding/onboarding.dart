@@ -26,7 +26,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Paletts.blue,
+      backgroundColor: Palette.blue,
       body: Column(
         children: [
           Padding(
@@ -44,7 +44,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: Container(
               width: MediaQuery.of(context).size.width,
               decoration:const BoxDecoration(
-                color: Paletts.snow,
+                color: Palette.snow,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30)),
@@ -58,7 +58,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Text(count == 0? title1: count == 1? title2 : title3, style:const TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold,
-                      color: Paletts.erieBlack,
+                      color: Palette.erieBlack,
                       fontSize: 23,
                     ),
                     textAlign: TextAlign.center,),
@@ -70,7 +70,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.normal,
                       fontSize: 13,
-                      color: Paletts.erieBlack,
+                      color: Palette.erieBlack,
                                        ),
                      textAlign: TextAlign.center,),
                    ),
@@ -95,9 +95,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                  onboardingCircle(count == 0? Paletts.blue:Paletts.spanishGrey),
-                  onboardingCircle(count == 1? Paletts.blue:Paletts.spanishGrey),
-                  onboardingCircle(count == 2? Paletts.blue:Paletts.spanishGrey),
+                  onboardingCircle(count == 0? Palette.blue:Palette.spanishGrey),
+                  onboardingCircle(count == 1? Palette.blue:Palette.spanishGrey),
+                  onboardingCircle(count == 2? Palette.blue:Palette.spanishGrey),
 
                   ],),
 
