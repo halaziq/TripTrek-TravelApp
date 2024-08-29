@@ -5,6 +5,7 @@ import 'package:trip_trek/entities/styles/palettes.dart';
 class CustomTextFiled extends StatelessWidget {
   final double height;
   final double width;
+  final TextEditingController controller;
   final String hintText;
   final Color hintColor;
   final String obscuringCharacter;
@@ -18,6 +19,7 @@ class CustomTextFiled extends StatelessWidget {
     this.hasIcon = false,
     this.icon = "assets/icons/search-normal.png",
     required this.hintText,
+    required this.controller,
     this.obscuringCharacter = "*",
     this.hintColor = Palette.spanishGrey,
     this.obscureText = false,
@@ -53,6 +55,7 @@ class CustomTextFiled extends StatelessWidget {
               height: height,
               width:  width - 110,
               child: TextFormField(
+                controller: controller,
                 obscureText: obscureText,
                 obscuringCharacter: "*",
                 textAlignVertical: TextAlignVertical.center,

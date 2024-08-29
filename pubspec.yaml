@@ -14,6 +14,10 @@ dependencies:
   shared_preferences: ^2.2.3
   proste_bezier_curve: ^2.0.2
   bottom_navbar_with_indicator: ^0.0.9
+  firebase_core: ^3.3.0
+  firebase_auth: ^5.1.4
+  fluttertoast: ^8.2.8
+  cloud_firestore: ^5.3.0
 
 dev_dependencies:
   flutter_test:

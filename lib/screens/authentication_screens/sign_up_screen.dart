@@ -1,14 +1,38 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_trek/entities/routes/routes.dart';
 import 'package:trip_trek/entities/styles/palettes.dart';
 import 'package:trip_trek/entities/widgets/custom_elevated_button.dart';
 import 'package:trip_trek/entities/widgets/custom_text_filed.dart';
 import 'package:trip_trek/entities/widgets/sign_widget.dart';
+import 'package:trip_trek/services/authentication/auth_services.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen
 ({super.key});
 
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+
+      final AuthService _authService = AuthService();
+
+   TextEditingController userName = TextEditingController();
+   TextEditingController email = TextEditingController();
+   TextEditingController password = TextEditingController();
+
+   @override
+  void dispose() {
+    // TODO: implement dispose
+    userName.dispose();
+    email.dispose();
+    password.dispose();
+    super.dispose();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +92,7 @@ class SignUpScreen extends StatelessWidget {
                         
                       ),),
                       CustomTextFiled(
+                        controller: userName,
                         hintText: 'Your name',
                         height: MediaQuery.of(context).size.height*0.06,
                         width: MediaQuery.of(context).size.width*0.9,
@@ -84,6 +109,7 @@ class SignUpScreen extends StatelessWidget {
                         ),),
                       ),
                       CustomTextFiled(
+                        controller: email,
                         hintText: 'youremails@yahoo.com',
                         height: MediaQuery.of(context).size.height*0.06,
                         width: MediaQuery.of(context).size.width*0.9,
@@ -100,6 +126,7 @@ class SignUpScreen extends StatelessWidget {
                                                    ),),
                            ),
                       CustomTextFiled(
+                        controller:password,
                         hintText: '*******',
                         obscureText: true,
                         height: MediaQuery.of(context).size.height*0.06,
@@ -108,7 +135,7 @@ class SignUpScreen extends StatelessWidget {
                       Padding(
                         padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height *0.03),
                         child: CustomElevatedButton(buttonString: 'Sign Up',
-                         onPressed: ()=> Navigator.pushNamed(context, Routes.navigation),
+                         onPressed: _signup,
                          width: MediaQuery.of(context).size.width*0.9,
                          ),
                       ),
@@ -128,4 +155,50 @@ class SignUpScreen extends StatelessWidget {
       ),
     );
   }
+void _signup() async {
+  String username = userName.text;
+  String useremail = email.text;
+  String userpassword = password.text;
+
+  try {
+    User? user = await _authService.signUpWithEmailAndPassword(useremail, userpassword);
+
+    if (user != null) {
+      print("User is successfully created");
+      await _addUser(); 
+      Navigator.pushNamed(context, Routes.navigation);
+    } else {
+      print("Error occurred during sign-up");
+    }
+  } catch (e) {
+    print("Sign-up failed: $e");
+  }
+}
+
+
+Future <void> _addUser() async {
+  try {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      await _authService.addUser(
+        user.uid,
+        userName.text.isNotEmpty ? userName.text : 'No Name',
+        'No First Name',
+        'No Last Name',
+        'No Gender',
+        email.text.isNotEmpty ? email.text : 'No Email',
+        'No Phone',
+        'No Emergency',
+        'No Image'
+      );
+      print("User information added to Firestore");
+    } else {
+      print("No user is currently signed in");
+    }
+  } catch (e) {
+    print("Failed to add user: $e");
+  }
+}
+
 }
