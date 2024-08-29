@@ -55,7 +55,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         
                  BottomNavigationBarItem(
               icon: Image.asset("assets/icons/notification.png",scale: 1.5,),
-              activeIcon: Image.asset("assets/icons/notificationB.png",scale: 1.5,),
+              activeIcon: Image.asset("assets/icons/notificationB.png",scale: 1.4,),
               label: "Notification"
               ),
         

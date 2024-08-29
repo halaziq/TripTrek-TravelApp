@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:trip_trek/entities/routes/routes.dart';
 import 'package:trip_trek/entities/styles/palettes.dart';
 import 'package:trip_trek/entities/widgets/activity_widget.dart';
 import 'package:trip_trek/entities/widgets/article_widget.dart';
@@ -9,9 +11,15 @@ import 'package:trip_trek/entities/widgets/custom_text_filed.dart';
 import 'package:trip_trek/entities/widgets/promp_widget.dart';
 import 'package:trip_trek/entities/widgets/recommended_activity_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  TextEditingController search = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -50,7 +58,8 @@ class HomeScreen extends StatelessWidget {
                 ],),
               ),
 
-              const CustomTextFiled(
+               CustomTextFiled(
+                controller: search,
                 hintText: "Search",
                 hasIcon: true,
                 icon: "assets/icons/search-normal.png",
@@ -194,7 +203,10 @@ class HomeScreen extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),),
 
-                    TextButton(onPressed: (){},
+                    TextButton(onPressed: (){
+                      FirebaseAuth.instance.signOut();
+                      Navigator.pushNamed(context, Routes.signIn);
+                    },
                     child: const Text("See all",style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 13,

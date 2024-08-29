@@ -5,9 +5,15 @@ import 'package:trip_trek/entities/styles/palettes.dart';
 import 'package:trip_trek/entities/widgets/custom_elevated_button.dart';
 import 'package:trip_trek/entities/widgets/custom_text_filed.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
+class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
 
+  @override
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
+}
+
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  TextEditingController email = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +87,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                         
                       ),),
                       CustomTextFiled(
+                        controller: email,
                         hintText: 'youremails@yahoo.com',
                         height: MediaQuery.of(context).size.height*0.06,
                         width: MediaQuery.of(context).size.width*0.9,

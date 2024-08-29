@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "171012829952",
+    "project_id": "triptrek-bc63b",
+    "storage_bucket": "triptrek-bc63b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171012829952:android:8bdcf10f876672f6b339e5",
+        "android_client_info": {
+          "package_name": "com.example.trip_trek"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWsv4_k4hDLEQ_RKq99jglMv9a8ztlPyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
